@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Giphy API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="/scripts/client.js"></script>
+  </head>
+  <body ng-app="giphyApp">
+    <main ng-controller="GiphyController as giphy">
+      <h1>Random Giphy Service</h1>
+      <div>
+        <button ng-click="giphy.grabGif()">Generate GIF</button>
+          <div>
+            <img ng-show="giphy.imageUrl"
+                 ng-src="{{giphy.imageUrl}}"
+                 alt="Some GIF"/>
+          </div>
+      </div>
+      <div>
+        <label>Search GIFs</label>
+        <input mg-model="string">
+        <button ng-click="giphy.searchGif()">Search GIF</button>
+      </div>
+    </main>
+  </body>
+</html>

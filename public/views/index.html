@@ -5,23 +5,29 @@
     <title>Giphy API</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="/scripts/client.js"></script>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/styles/stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
   </head>
   <body ng-app="giphyApp">
     <main ng-controller="GiphyController as giphy">
-      <h1>Random Giphy Service</h1>
-      <div>
-        <button ng-click="giphy.grabGif()">Generate GIF</button>
+      <h1>GIF Roulette</h1>
+      <div class="container">
+        <h2>Generate a Random GIF!</h2>
+        <button class="btn btn-info btn-block" ng-click="giphy.grabGif()">Bang It Here to Reveal a Random GIF!</button>
           <div>
             <img ng-show="giphy.imageUrl"
                  ng-src="{{giphy.imageUrl}}"
                  alt="Some GIF"/>
           </div>
       </div>
-      <div>
+      <div class="container">
+        <h2>Search GIFs!</h2>
         <label>Search GIFs</label>
-        <input mg-model="string">
-        <button ng-click="giphy.searchGif()">Search GIF</button>
+        <input class="form-control" mg-model="string">
+        <button class="btn btn-info btn-block" ng-click="giphy.searchGif()">Bang It Here Submit a Search for a Particular Type of GIF!</button>
       </div>
+      <p>**GIFs provided by giphy.com</p>
     </main>
   </body>
 </html>

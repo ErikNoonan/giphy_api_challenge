@@ -1,0 +1,29 @@
+body {
+  width: 90%;
+  margin: 30px auto 30px auto;
+  background-color: peru;
+  font-family: 'Bangers', cursive;
+  text-align: center;
+}
+
+.container {
+  width: 75%;
+  padding: 1em;
+  background-color: bisque;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 2em;
+}
+
+img {
+  margin: 1em;
+}
+
+h1 {
+  font-size: 5em;
+}
+
+button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Giphy API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="/scripts/client.js"></script>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/styles/stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+  </head>
+  <body ng-app="giphyApp">
+    <main ng-controller="GiphyController as giphy">
+      <h1>GIF Roulette</h1>
+      <div class="container">
+        <form>
+          <h2>Generate a Random GIF!</h2>
+          <button class="btn btn-info pull-center" ng-click="giphy.grabGif()">Bang It Here to Reveal a Random GIF!</button>
+            <div>
+              <img ng-show="giphy.imageUrl"
+                   ng-src="{{giphy.imageUrl}}"/>
+            </div>
+
+            <h2>... Or Search GIFs!</h2>
+            <input class="form-control" type="text" mg-model="giphy.searchQuery" placeholder="Enter search here">
+            <button class="btn btn-info pull-center" type="submit" ng-click="giphy.searchGif()">Bang It Here Submit a Search for a Particular Type of GIF!</button>
+          </form>
+        <p>
+          <img ng-src="{{giphy.imageUrl}}"/>
+        </p>
+        <ul>
+          <li class="" ng-repeat="giphy in giphy.searchGifs"><img ng-src="{{giphy.images.fixed_width.url}}"/></li>
+        </ul>
+      </div>
+      <p>**GIFs provided by giphy.com</p>
+    </main>
+  </body>
+</html>
+
+
+<!-- /////////////////////////////////// -->
+<!--
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="/vendors/angular.min.js"></script>
+    <script src="/scripts/app.js"></script>
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/styles.css"  />
+  </head>
+  <body ng-app="giphyApp">
+    <main ng-controller="GiphyController as gif" class="container">
+      <h1 class="text-center">Giphy API Generator</h1>
+        <form>
+          <input class="form-control" type="text" ng-model="gif.searchQuery" placeholder="Search"/>
+          <input class="btn-info pull-right"type="submit" ng-click="gif.searchForGif()"/>
+          <button class="btn-warning"ng-click="gif.getRandomGif()">
+            Random
+          </button>
+        </form>
+      <p class="text-center">
+        <img ng-src="{{gif.imageUrl}}"/>
+      </p>
+      <ul>
+        <li class="col-sm-4" ng-repeat="giphy in gif.searchGifs"><img ng-src="{{giphy.images.fixed_width.url}}"/></li>
+      </ul>
+
+    </main>
+
+  </body>
+</html> -->
+
+
+///////////////////////////////////
+
+
+////////////////////////////////////////////
+//
+// var app = angular.module('giphyApp', []);
+//
+//   app.controller('GiphyController', function($http){
+//     console.log('controller loaded');
+//     var ctrl = this;
+//
+//     var API = 'http://api.giphy.com/v1';
+//     ctrl.imageUrl = ' ';
+//     ctrl.searchQuery = ' ';
+//     ctrl.searchGifs = [];
+//
+// ctrl.getRandomGif = function(){
+//
+//     $http({
+//     method: 'GET',
+//     url: API +'/gifs/random',
+//     params:{
+//         api_key: 'dc6zaTOxFJmzC',
+//         q:null
+//       }
+//   }).then(function(response){
+//     console.log(response);
+//     ctrl.imageUrl = response.data.data.image_url;
+//   }).catch(function(err){
+//     console.log('Error requesting data from server', err);
+//   });
+// }
+//
+// ctrl.searchForGif = function(){
+//     $http({
+//     method: 'GET',
+//     url: API +'/gifs/search',
+//     params:{
+//         api_key: 'dc6zaTOxFJmzC',
+//         q:ctrl.searchQuery
+//       }
+//   }).then(function(response){
+//     console.log(response.data.data);
+//     ctrl.searchGifs = response.data.data;
+//   }).catch(function(err){
+//     console.log('Error requesting data from server', err);
+//   });
+// }
+//
+//
+// });

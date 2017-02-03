@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Giphy API</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="/scripts/client.js"></script>
@@ -13,19 +13,24 @@
     <main ng-controller="GiphyController as giphy">
       <h1>GIF Roulette</h1>
       <div class="container">
-        <h2>Generate a Random GIF!</h2>
-        <button class="btn btn-info btn-block" ng-click="giphy.grabGif()">Bang It Here to Reveal a Random GIF!</button>
-          <div>
-            <img ng-show="giphy.imageUrl"
-                 ng-src="{{giphy.imageUrl}}"
-                 alt="Some GIF"/>
-          </div>
-      </div>
-      <div class="container">
-        <h2>Search GIFs!</h2>
-        <label>Search GIFs</label>
-        <input class="form-control" mg-model="string">
-        <button class="btn btn-info btn-block" ng-click="giphy.searchGif()">Bang It Here Submit a Search for a Particular Type of GIF!</button>
+        <form>
+          <h2>Generate a Random GIF!</h2>
+          <button class="btn btn-info pull-center" ng-click="giphy.grabGif()">Bang It Here to Reveal a Random GIF!</button>
+            <div>
+              <img ng-show="giphy.imageUrl"
+                   ng-src="{{giphy.imageUrl}}"/>
+            </div>
+
+            <h2>... Or Search GIFs!</h2>
+            <input class="form-control" type="text" mg-model="giphy.searchQuery" placeholder="Enter search here">
+            <button class="btn btn-info pull-center" type="submit" ng-click="giphy.searchGif()">Bang It Here Submit a Search for a Particular Type of GIF!</button>
+          </form>
+        <p>
+          <img ng-src="{{giphy.imageUrl}}"/>
+        </p>
+        <ul>
+          <li class="" ng-repeat="giphy in giphy.searchGifs"><img ng-src="{{giphy.images.fixed_width.url}}"/></li>
+        </ul>
       </div>
       <p>**GIFs provided by giphy.com</p>
     </main>
